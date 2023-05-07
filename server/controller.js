@@ -23,18 +23,18 @@ module.exports = {
         res.status(200).send(randomFortune);
     },
     getFeelingResponse: (req, res) => {
-        const feeling = req.body.feeling;
-        
-        if (feeling === "yes") {
-          res.status(200).send("Glad to hear that you're feeling good today!");
-        } else if (feeling === "no") {
-          res.status(200).send("Sorry to hear that you're feeling blue.");
-        } else {
-          res.status(400).send(`Invalid, 'Everthing is awesome - LEGO Movie.`);
-        }
-    },
-
-    happyButton: (req, res) => {
-      const happy = req.body.happy;
+      const feeling = req.query.feeling;
+    if (feeling === "yes") {
+      console.log("Glad to hear that you're feeling good today!");
+    } else if (feeling === "no") {
+      console.log("Sorry to hear that you're feeling blue.");
+    } else {
+      console.log("Invalid input, please enter either yes or no.");
     }
+  }
 }
+    // happyButton: (req, res) => {
+    //   const happy = req.body.happy;
+    // }
+    // const formData = new FormData(form);
+    // const feeling = formData.get('feeling');

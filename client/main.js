@@ -27,7 +27,7 @@ fortuneBtn.addEventListener('click', getFortune)
 const feelingBtn = document.getElementById('feelingResponse')
 
 const getFeelingResponse = () => {
-    axios.get('http://localhost:4000/api/feeling/')
+    axios.get('http://localhost:4000/api/feelingResponse?feeling=' + feelingBtn.value)
         .then(res => {
             const data = res.data;
             alert(data);

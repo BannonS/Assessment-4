@@ -15,6 +15,6 @@ app.get("/api/compliment", getCompliment);
 
 app.get('/api/fortune', getFortune);
 
-app.get('/api/feeling', getFeelingResponse);
+app.post('/api/feelingResponse', getFeelingResponse);
 
 app.listen(4000, () => console.log("Server running on 4000"));
