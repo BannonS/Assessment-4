@@ -2,16 +2,18 @@
 <html>
   <head>
     <title>Back End Assessment</title>
+    <link rel="stylesheet" href="styles.css">
+    <h1>Assessment 4 - backend</h1>
   </head>
   <body class="container">
-    <h1>Click me, I say nice things</h1>
+    <h2>Click me, I say nice things</h2>
     <button id="complimentButton">Get a compliment</button>
 
-    <h1>Know your fate, press and wait...</h1>
+    <h2>Know your fate, press and wait...</h2>
     <button id="fortuneButton">Get your fortune</button>
 
-    <form action="/feeling" method="POST">
-      <h1>Are you feeling good today?</h1>
+    <form id="feelingForm" action="/feeling" method="POST">
+      <h2>Are you feeling good today?</h2>
       <label for="feeling">Well?</label>
       <select id="feelingResponse" name="feeling">
         <option value="yes">Yes</option>
@@ -19,15 +21,26 @@
       </select>
       <button type="submit">Submit</button>
     </form>
-    
 
-    <h1>Need A Pick "me" up?</h1>
-    <button for="happy">Mystery Button</Button></button>
+    <h2>Need A Pick "me" up?</h2>
+    <button id="happy">Mystery Button</button>
+      <div id="pictureContainer"></div>
     
-    <h1>form5</h1>
+      <form id="magicForm" action="/magic" method="POST">
+        <h2>Random Magic</h2>
+        <select id="magicSelect" name="magic">
+          <option value="0">Option 1</option>
+          <option value="1">Option 2</option>
+          <option value="2">Option 3</option>
+          <option value="3">option 4</option>
+          <option value="4">option 5</option>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="cardContainer"></div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
-    
+  
   </body>
 </html>

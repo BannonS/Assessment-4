@@ -24,26 +24,54 @@ const getFortune = () => {
 
 fortuneBtn.addEventListener('click', getFortune)
 
-const feelingBtn = document.getElementById('feelingResponse')
+const feelingForm = document.getElementById('feelingForm');
+feelingForm.addEventListener('submit', event => {
+  event.preventDefault(); 
+  const feeling = document.getElementById('feelingResponse').value;
+  axios.post('http://localhost:4000/api/feelingResponse', { feeling })
+    .then(res => {
+      const data = res.data;
+      alert(data.message);
+    });
+});
 
-const getFeelingResponse = () => {
-    axios.get('http://localhost:4000/api/feelingResponse?feeling=' + feelingBtn.value)
+        
+const happyBtn = document.getElementById('happy')
+const pictureContainer = document.getElementById('pictureContainer');
+
+const getHappy = () => {
+    axios.get('http://localhost:4000/api/happy')
         .then(res => {
-            const data = res.data;
-            alert(data);
+            const imageUrl = res.data;
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            pictureContainer.appendChild(img);
+        })
+        .catch(err => {
+            console.error(err);
         });
 };
 
-feelingBtn.addEventListener('click', getFeelingResponse)
+happyBtn.addEventListener('click', getHappy);
 
-const happyBtn = document.getElementById('happyButton')
+const getMagic = () => {
+    const select = document.getElementById('magicSelect');
+    const selectedOption = select.value;
+    axios.post('http://localhost:4000/api/magic', { magic: selectedOption })
+      .then(res => {
+        const cardUrl = res.data;
+        const img = document.createElement('img');
+        img.src = cardUrl;
+        const cardContainer = document.getElementById('cardContainer');
+        cardContainer.appendChild(img);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
 
-const getHappyButton = () => {
-    axios.get('http://localhost:400/api/happy')
-        .then(res => {
-            const data = res.data;
-            alert(data);
-        })
-happyBtn.addEventListener('click', getHappy)
-
-};
+  const magicForm = document.getElementById('magicForm');
+magicForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+  getMagic();
+});

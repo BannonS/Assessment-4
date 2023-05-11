@@ -1,0 +1,24 @@
+#cardContainer img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+  }
+
+#pictureContainer img {
+    width: 400px;
+    height: 500px;
+    object-fit: fill;
+}
+
+body {
+    background-color: #affa75;
+  }
+
+h1 {
+  text-align: center;
+  color: rgb(1, 71, 48);
+  }
+
+h2 {
+  color: rgb(93, 19, 163);
+  }
